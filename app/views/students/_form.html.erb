@@ -1,0 +1,61 @@
+<%= form_with model: student do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+    <% student.errors.full_messages_for(:name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :email %><br>
+    <%= form.text_area :email %><br>
+    <% student.errors.full_messages_for(:email).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :phone_no %><br>
+    <%= form.text_area :phone_no %><br>
+    <% student.errors.full_messages_for(:phone_no).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+<div>
+    <%= form.label :address %><br>
+    <%= form.text_area :address %><br>
+    <% student.errors.full_messages_for(:address).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :guardian_name %><br>
+    <%= form.text_area :guardian_name %><br>
+    <% student.errors.full_messages_for(:guardian_name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :madhyamik_percentage %><br>
+    <%= form.text_area :madhyamik_percentage %><br>
+    <% student.errors.full_messages_for(:madhyamik_percentage).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :hs_percentage %><br>
+    <%= form.text_area :hs_percentage %><br>
+    <% student.errors.full_messages_for(:hs_percentage).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

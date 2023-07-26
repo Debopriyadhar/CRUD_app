@@ -1,0 +1,68 @@
+<h1>Students Details</h1>
+<table class="table">
+  <thead >
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone no</th>
+      <th scope="col">Address</th>
+      <th scope="col" >Guardian Name</th>
+      <th scope="col">Madhyamik Marks</th>
+      <th scope="col">Hs Marks</th>
+      <th scope="col"> </th>
+      <th scope="col"> </th>
+
+     </tr>
+  </thead>
+  
+<tbody>
+<tr>
+
+      <td><%=@student.name%></td>
+      <td><%=@student.email%></td>
+      <td><%=@student.phone_no%></td>
+      <td><%=@student.address%></td>
+      <td><%=@student.guardian_name%></td>
+      <td><%=@student.madhyamik_percentage%></td>
+      <td><%=@student.hs_percentage%></td>
+      <td><%= link_to "Edit", edit_student_path(@student.id) %></td>
+      <td><%= link_to "Delete", student_path(@student.id), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></td>
+    </tr>
+</tbody>
+</table>
+
+
+
+<h2>Feedbacks</h2>
+<%= render @student.feedbacks %>
+
+
+<h2>Add a feedback:</h2>
+<%= render 'feedbacks/form' %>
+
+<%# <%= link_to "Edit", edit_student_feedback_path(@student) %> 
+<%# <%= link_to 'Back', :back %> 
+
+
+<%
+=begin %>
+
+
+<%= form_with model: [ @student, @student.feedbacks.build ] do |form| %>
+  <p>
+    <%= form.label :commenter %><br>
+    <%= form.text_field :commenter %>
+  </p>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+<%
+=end %>
