@@ -1,4 +1,7 @@
 class FeedbacksController < ApplicationController
+
+    # http_basic_authenticate_with name: "dhh", password: "secret", only: :destroy
+    
     def create
         @student = Student.find(params[:student_id])
         @feedback = @student.feedbacks.create(comment_params)
